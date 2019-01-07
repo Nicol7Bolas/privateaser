@@ -1,6 +1,6 @@
 'use strict';
 
-//list of bats
+//list of bars
 //useful for ALL 5 steps
 //could be an array of objects that you fetched from api or database
 const bars = [{
@@ -33,13 +33,13 @@ const events = [{
   'time': 4,
   'persons': 8,
   'options': {
-    'deductibleReduction': false
+	'deductibleReduction': false
   },
   'price': 0,
   'commission': {
-    'insurance': 0,
-    'treasury': 0,
-    'privateaser': 0
+	'insurance': 0,
+	'treasury': 0,
+	'privateaser': 0
   }
 }, {
   'id': '65203b0a-a864-4dea-81e2-e389515752a8',
@@ -48,13 +48,13 @@ const events = [{
   'time': 8,
   'persons': 30,
   'options': {
-    'deductibleReduction': true
+	'deductibleReduction': true
   },
   'price': 0,
   'commission': {
-    'insurance': 0,
-    'treasury': 0,
-    'privateaser': 0
+	'insurance': 0,
+	'treasury': 0,
+	'privateaser': 0
   }
 }, {
   'id': '94dab739-bd93-44c0-9be1-52dd07baa9f6',
@@ -63,13 +63,13 @@ const events = [{
   'time': 5,
   'persons': 80,
   'options': {
-    'deductibleReduction': true
+	'deductibleReduction': true
   },
   'price': 0,
   'commission': {
-    'insurance': 0,
-    'treasury': 0,
-    'privateaser': 0
+	'insurance': 0,
+	'treasury': 0,
+	'privateaser': 0
   }
 }];
 
@@ -78,74 +78,92 @@ const events = [{
 const actors = [{
   'eventId': 'bba9500c-fd9e-453f-abf1-4cd8f52af377',
   'payment': [{
-    'who': 'booker',
-    'type': 'debit',
-    'amount': 0
+	'who': 'booker',
+	'type': 'debit',
+	'amount': 0
   }, {
-    'who': 'bar',
-    'type': 'credit',
-    'amount': 0
+	'who': 'bar',
+	'type': 'credit',
+	'amount': 0
   }, {
-    'who': 'insurance',
-    'type': 'credit',
-    'amount': 0
+	'who': 'insurance',
+	'type': 'credit',
+	'amount': 0
   }, {
-    'who': 'treasury',
-    'type': 'credit',
-    'amount': 0
+	'who': 'treasury',
+	'type': 'credit',
+	'amount': 0
   }, {
-    'who': 'privateaser',
-    'type': 'credit',
-    'amount': 0
+	'who': 'privateaser',
+	'type': 'credit',
+	'amount': 0
   }]
 }, {
   'eventId': '65203b0a-a864-4dea-81e2-e389515752a8',
   'payment': [{
-    'who': 'booker',
-    'type': 'debit',
-    'amount': 0
+	'who': 'booker',
+	'type': 'debit',
+	'amount': 0
   }, {
-    'who': 'bar',
-    'type': 'credit',
-    'amount': 0
+	'who': 'bar',
+	'type': 'credit',
+	'amount': 0
   }, {
-    'who': 'insurance',
-    'type': 'credit',
-    'amount': 0
+	'who': 'insurance',
+	'type': 'credit',
+	'amount': 0
   }, {
-    'who': 'treasury',
-    'type': 'credit',
-    'amount': 0
+	'who': 'treasury',
+	'type': 'credit',
+	'amount': 0
   }, {
-    'who': 'privateaser',
-    'type': 'credit',
-    'amount': 0
+	'who': 'privateaser',
+	'type': 'credit',
+	'amount': 0
   }]
 }, {
   'eventId': '94dab739-bd93-44c0-9be1-52dd07baa9f6',
   'payment': [{
-    'who': 'booker',
-    'type': 'debit',
-    'amount': 0
+	'who': 'booker',
+	'type': 'debit',
+	'amount': 0
   }, {
-    'who': 'bar',
-    'type': 'credit',
-    'amount': 0
+	'who': 'bar',
+	'type': 'credit',
+	'amount': 0
   }, {
-    'who': 'insurance',
-    'type': 'credit',
-    'amount': 0
+	'who': 'insurance',
+	'type': 'credit',
+	'amount': 0
   }, {
-    'who': 'treasury',
-    'type': 'credit',
-    'amount': 0
+	'who': 'treasury',
+	'type': 'credit',
+	'amount': 0
   }, {
-    'who': 'privateaser',
-    'type': 'credit',
-    'amount': 0
+	'who': 'privateaser',
+	'type': 'credit',
+	'amount': 0
   }]
 }];
-//commit test
-console.log(bars);
+
+//Step 1 - Computing the booking price for each booker according to the events
+for (var i = 0; i < events.length; i++) {
+  var persons = events[i].persons;
+  var time = events[i].time;
+  var barId = events[i].barId;
+  var pricePerPerson;
+  var pricePerHour
+  for (var j = 0; j < bars.length; j++){
+    if(bars[i].id == barId){
+      pricePerPerson = bars[i].pricePerPerson;
+      pricePerHour = bars[i].pricePerHour;
+      break;
+    }
+  }
+  //we directly change the value of the price in the events array
+  events[i].price = (persons*pricePerPerson + time*pricePerHour);
+}
+
+console.log(bars)
 console.log(events);
 console.log(actors);
