@@ -145,7 +145,7 @@ const actors = [{
     'amount': 0
   }]
 }];
-
+//commit test
 console.log(bars);
 console.log(events);
 console.log(actors);
