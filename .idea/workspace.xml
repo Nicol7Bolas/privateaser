@@ -47,13 +47,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1416" />
+          <entry key="js" value="1682" />
           <entry key="txt" value="57" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="1416" />
+          <entry key="JavaScript" value="1682" />
           <entry key="PLAIN_TEXT" value="57" />
         </counts>
       </usages-collector>
@@ -64,8 +64,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="173" column="23" selection-start-line="173" selection-start-column="23" selection-end-line="173" selection-end-column="23" />
+            <state relative-caret-position="234">
+              <caret line="193" column="84" selection-start-line="193" selection-start-column="84" selection-end-line="193" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -74,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="16">
-              <caret line="309" column="20" selection-start-line="309" selection-start-column="20" selection-end-line="309" selection-end-column="20" />
+              <caret line="316" column="20" selection-start-line="316" selection-start-column="20" selection-end-line="316" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -150,7 +150,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547482883223" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547484871194" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RunDashboard">
@@ -190,7 +190,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547481879622</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Step2 Implementation">
+      <created>1547483254538</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1547483254538</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -288,14 +295,14 @@
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
-          <caret line="309" column="20" selection-start-line="309" selection-start-column="20" selection-end-line="309" selection-end-column="20" />
+          <caret line="316" column="20" selection-start-line="316" selection-start-column="20" selection-end-line="316" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="173" column="23" selection-start-line="173" selection-start-column="23" selection-end-line="173" selection-end-column="23" />
+        <state relative-caret-position="234">
+          <caret line="193" column="84" selection-start-line="193" selection-start-column="84" selection-end-line="193" selection-end-column="84" />
         </state>
       </provider>
     </entry>

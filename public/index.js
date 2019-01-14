@@ -170,6 +170,7 @@ return bars.find(bar => bar.id ===id);
 }
 //This constant function gets the bar whose id equals the input id
 //Step 2 - Adding the new decrease pricing rules based on the number of persons
+//Step 3 - Adding the commission calculation
 events.forEach(function (event){
   const persons = event.persons;
   const time = event.time;
@@ -187,6 +188,10 @@ events.forEach(function (event){
     pricePerPerson -= pricePerPerson*0.5;//decrease by 50% if more than 60 people
   }
   event.price = time*pricePerHour + persons*pricePerPerson;
+  const commission = event.price*0.3;//30% of the booking price
+  event.commission.insurance = commission*0.5;//half of the commission goes to insurance
+  event.commission.treasury = persons;//1 euro per person goes to treasury
+  event.commission.privateaser = commission*0.5 - persons;//the rest for privateaser
 })
 console.log(bars)
 console.log(events);
