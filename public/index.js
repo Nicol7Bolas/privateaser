@@ -147,14 +147,15 @@ const actors = [{
 }];
 
 //Step 1 - Computing the booking price for each booker according to the events
-for (var i = 0; i < events.length; i++) {
+/*for (var i = 0; i < events.length; i++) {
   var persons = events[i].persons;
   var time = events[i].time;
   var barId = events[i].barId;
   var pricePerPerson;
-  var pricePerHour
+  var pricePerHour;
   for (var j = 0; j < bars.length; j++){
     if(bars[i].id == barId){
+      if(persons > 10 && persons <= 20)
       pricePerPerson = bars[i].pricePerPerson;
       pricePerHour = bars[i].pricePerHour;
       break;
@@ -162,8 +163,29 @@ for (var i = 0; i < events.length; i++) {
   }
   //we directly change the value of the price in the events array
   events[i].price = (persons*pricePerPerson + time*pricePerHour);
-}
+}*/
 
+const getBar = id => bars.find(bar => bar.id ===id);
+//This constant function gets the bar whose id equals the input id
+//Step 2 - Adding the new decrease pricing rules based on the number of persons
+events.forEach(function (event){
+  const persons = events.persons;
+  const time = events.time;
+  const barId = events.barId;
+  const bar = getBar(barId);
+  const pricePerPerson = bar.pricePerPerson;
+  const pricePerHour = bar.pricePerHour;
+  if(persons > 10 && persons <=20){
+    pricePerPerson -= pricePerPerson*0.1;//decrease by 10% if more than 10 people
+  }
+  if(persons >20 && persons <=60){
+    pricePerPerson -= pricePerPerson*0.3;//decrease by 30% if more than 20 people
+  }
+  if(persons > 60){
+    pricePerPerson -= pricePerPerson*0.5;//decrease by 50% if more than 60 people
+  }
+  events.price = time*pricePerHour + persons*pricePerPerson;
+})
 console.log(bars)
 console.log(events);
 console.log(actors);
