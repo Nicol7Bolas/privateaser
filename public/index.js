@@ -165,16 +165,18 @@ const actors = [{
   events[i].price = (persons*pricePerPerson + time*pricePerHour);
 }*/
 
-const getBar = id => bars.find(bar => bar.id ===id);
+const getBar = id => {
+return bars.find(bar => bar.id ===id);
+}
 //This constant function gets the bar whose id equals the input id
 //Step 2 - Adding the new decrease pricing rules based on the number of persons
 events.forEach(function (event){
-  const persons = events.persons;
-  const time = events.time;
-  const barId = events.barId;
+  const persons = event.persons;
+  const time = event.time;
+  const barId = event.barId;
   const bar = getBar(barId);
-  const pricePerPerson = bar.pricePerPerson;
-  const pricePerHour = bar.pricePerHour;
+  var pricePerPerson = bar.pricePerPerson;
+  var pricePerHour = bar.pricePerHour;
   if(persons > 10 && persons <=20){
     pricePerPerson -= pricePerPerson*0.1;//decrease by 10% if more than 10 people
   }
@@ -184,7 +186,7 @@ events.forEach(function (event){
   if(persons > 60){
     pricePerPerson -= pricePerPerson*0.5;//decrease by 50% if more than 60 people
   }
-  events.price = time*pricePerHour + persons*pricePerPerson;
+  event.price = time*pricePerHour + persons*pricePerPerson;
 })
 console.log(bars)
 console.log(events);
