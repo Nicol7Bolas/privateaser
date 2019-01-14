@@ -197,7 +197,7 @@ events.forEach(function (event){
   event.commission.treasury = persons;//1 euro per person goes to treasury
   event.commission.privateaser = commission*0.5 - persons;//the rest for privateaser
   //Step4:
-  if(event.option.deductibleReduction){
+  if(event.options.deductibleReduction){
     event.price += persons;//1 euro per person added to the booking price
     event.commission.privateaser += persons;//this charge goes directly to privateaser
   }
