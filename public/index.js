@@ -165,10 +165,10 @@ const actors = [{
   events[i].price = (persons*pricePerPerson + time*pricePerHour);
 }*/
 
+//This constant function gets the bar whose id equals the input id
 const getBar = id => {
 return bars.find(bar => bar.id ===id);
 }
-//This constant function gets the bar whose id equals the input id
 //Step 2 - Adding the new decrease pricing rules based on the number of persons
 //Step 3 - Adding the commission calculation
 //Step 4 - Adding the deductible option effect on pricing and commission
@@ -201,6 +201,22 @@ events.forEach(function (event){
     event.price += persons;//1 euro per person added to the booking price
     event.commission.privateaser += persons;//this charge goes directly to privateaser
   }
+})
+//Step 5 - Paying and Crediting the Actors
+//This function helps getting the events whose id we have
+const getEvent = id => {
+return events.find(event => event.id ===id);
+}
+actors.forEach(function (actor){
+  const eventId = actor.eventId;
+  const event = getEvent(eventId);
+  actor.payment.forEach(function (paymentActor){
+    if(paymentActor.who == 'booker') paymentActor.amount += event.price;
+    if(paymentActor.who == 'bar') paymentActor.amount += event.price - event.commission.insurance - event.commission.treasury - event.commission.privateaser;
+    if(paymentActor.who == 'insurance') paymentActor.amount += event.commission.insurance;
+    if(paymentActor.who == 'treasury') paymentActor.amount += event.commission.treasury;
+    if(paymentActor.who == 'privateaser') paymentActor.amount += event.commission.privateaser;
+  })
 })
 console.log(bars)
 console.log(events);
